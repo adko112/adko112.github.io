@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prihlásenie</title>
+    <script>
+        function downloadCredentials() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const blob = new Blob([`Email: ${email}\nHeslo: ${password}`], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = 'credentials.txt';
+            link.click();
+        }
+    </script>
+</head>
+<body>
+    <h1>Prihlásenie</h1>
+    <form onsubmit="event.preventDefault(); downloadCredentials();">
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+        <br>
+        <label for="password">Heslo:</label>
+        <input type="password" id="password" required>
+        <br>
+        <button type="submit">Prihlásiť</button>
+    </form>
+</body>
+</html>
