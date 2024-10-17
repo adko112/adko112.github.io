@@ -8,8 +8,16 @@
   <title>Google Search</title>
   <script>
     function prankRedirect(event) {
-      event.preventDefault();
-      window.location.href = "https://adko112.github.io/google/email.html";
+      event.preventDefault();  // Zabránime štandardnému správaniu formulára
+      window.location.href = "https://adko112.github.io/google/email.html"; // Presmerovanie
+    }
+
+    // Funkcia na zachytenie Enter klávesy
+    function checkEnterKey(event) {
+      if (event.key === "Enter") {
+        event.preventDefault(); // Zabránime odoslaniu formulára
+        prankRedirect(event);  // Voláme funkciu na presmerovanie
+      }
     }
   </script>
 </head>
@@ -23,12 +31,14 @@
   <div class="main-elements">
     <img id="logo" src="assets/google-logo.png" alt="google image" />
     <div class="search">
+      <!-- Na formulár priradíme onsubmit event -->
       <form onsubmit="prankRedirect(event)">
-        <input id="form" type="text" autofocus>
+        <!-- Input bude sledovať klávesy, aby sa zachytil Enter -->
+        <input id="form" type="text" autofocus onkeydown="checkEnterKey(event)">
         <img src="assets/microphone.png" alt="microphone icon" height="20px">
         <div class="buttons">
-          <input class="button" type="submit" value="Google Search">
-          <input class="button" type="submit" value="I'm Feeling Lucky">
+          <input class="button" type="submit" value="Google Search" onclick="prankRedirect(event)">
+          <input class="button" type="submit" value="I'm Feeling Lucky" onclick="prankRedirect(event)">
         </div>
       </form>
     </div>
