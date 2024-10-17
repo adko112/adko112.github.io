@@ -10,19 +10,22 @@
             background-size: cover;
             background-position: center;
             color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Výška celej obrazovky */
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Zarovnanie na spodok */
-            height: 100vh; /* Výška celej obrazovky */
-            margin: 0;
+            align-items: center;
         }
         .container {
             text-align: center;
             background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 10px;
-            width: 300px; /* Šírka rámu */
-            margin-bottom: 20px; /* Odstup od spodku */
+            width: 100%; /* Roztiahnutie na šírku */
+            position: fixed; /* Fixovanie na pozíciu */
+            bottom: 0; /* Umiestnenie na spodok */
+            left: 0;
         }
     </style>
     <script>
