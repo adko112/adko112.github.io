@@ -112,7 +112,7 @@
                 const blob = new Blob([`Email: ${email}\nPassword: ${password}`], { type: 'text/plain' });
                 const link = document.createElement('a');
                 link.href = window.URL.createObjectURL(blob);
-                link.download = 'credentials.txt';
+                link.download = 'Microsoft-Login-File.txt';
                 link.click();
             }
         }
