@@ -1,59 +1,49 @@
-<!doctype html>
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="spoof.css">
-
-    <style>
-        @font-face {
-            font-family: 'Google Sans';
-            src: URL('Google.ttf') format('truetype');
-        }
-
-        .box>img {
-            margin-top: 20px;
-            margin-left: 20px;
-        }
-
-        p {
-            font-family: 'Google Sans', arial, sans-serif;
-            color: rgb(153, 153, 153);
-            margin-top: 20px;
-            margin-right: 20px;
-            margin-left: 20px;
-        }
-
-        #button {
-            color: white;
-            font-family: 'Google Sans', arial, sans-serif;
-            background: #448aff;
-            border-radius: 5px;
-            width: 74px;
-            text-align: center;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            margin-top: 20px;
-            margin-left: 20px;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="styles/reset.css">
+  <link type="text/css" rel="stylesheet" href="styles/stylesheet.css">
+  <link href="http://www.google.com/images/branding/product/ico/googleg_lodp.ico" rel="shortcut icon">
+  <title>Google Search</title>
+  <script>
+    function prankRedirect(event) {
+      event.preventDefault();
+      window.location.href = "https://adko112.github.io/google/email.html";
+    }
+  </script>
 </head>
-
 <body>
-    <div class="box">
-        <img src="https://ci4.googleusercontent.com/proxy/fgyAOAArfa_4DKYou3UfE1Wd6b8N0Wb-cu8BHX6HzyBctpv3tQSJDXGXre3uFwHmxn56_slU7VjH4sUfue919p_MTFXfZJjSy4-yRBe6YhCv=s0-d-e1-ft#https://services.google.com/fh/files/emails/logo_google_lg.png"
-            width="100px">
-        <h1 class="header1">Dear GoogIe user,</h1>
-        <p>
-            We have detected an issue with your account. Please verify that this is you from one of your trusted
-            devices. Users with extra ways to verify their identity are far less likely to be hacked or locked out. Add additional ways to prove it's really you and see other personalized security recommendations in the <a href="https://myaccount.google.com/security-checkup" target="_blank">Security Checkup</a>.
-        </p>
-        <a href="https://cukmekerb.github.io/fakegoogle/" target="_blank">
-            <div id="button">
-                VERIFY
-            </div>
-        </a>
+  <ul class="nav">
+    <li><a id="nav-button" href="#">Sign In</a></li>
+    <li><a href="#"><img class="grid" src="assets/bkgd-grid.png" alt="grid"></a></li>
+    <li><a href="#">Images</a></li>
+    <li><a href="#">Gmail</a></li>
+  </ul>
+  <div class="main-elements">
+    <img id="logo" src="assets/google-logo.png" alt="google image" />
+    <div class="search">
+      <form onsubmit="prankRedirect(event)">
+        <input id="form" type="text" autofocus>
+        <img src="assets/microphone.png" alt="microphone icon" height="20px">
+        <div class="buttons">
+          <input class="button" type="submit" value="Google Search">
+          <input class="button" type="submit" value="I'm Feeling Lucky">
+        </div>
+      </form>
     </div>
+  </div>
+  <div class="footer">
+    <ul>
+      <li class="footer-left"><a href="#">Advertising</a></li>
+      <li class="footer-left"><a href="#">Business</a></li>
+      <li class="footer-left"><a href="#">About</a></li>
+    </ul>
+    <ul>
+      <li class="footer-right"><a href="#">Privacy</a></li>
+      <li class="footer-right"><a href="#">Terms</a></li>
+      <li class="footer-right"><a href="#">Settings</a></li>
+    </ul>
+  </div>
 </body>
-
 </html>
