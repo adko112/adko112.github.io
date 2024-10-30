@@ -1,0 +1,194 @@
+body {
+  margin: 0px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  background-color: white;
+}
+
+.input {
+  width: 400px;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.headerRight {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo {
+  padding-left: 15px;
+}
+
+.icon {
+  padding: 8px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.video {
+  display: flex;
+  flex-direction: column;
+  flex:3;
+  margin: 10px;
+  margin-top: 50px;
+}
+
+.iframe {
+  width: 100%;
+}
+
+.videotitle {
+  margin-top: 12px;
+  font-size: 18px;
+}
+
+.videodesc {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: #666666;
+  border-bottom: 1px solid #666666;
+}
+
+.videodescL {
+  display: flex;
+  flex-direction: row;
+}
+
+.videodescR {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.likenumber {
+  padding: 4px;
+}
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  padding-top: 12px
+}
+
+.commenticon {
+  border-radius: 50%;
+}
+
+.commentdesc {
+  display: flex;
+  flex-direction: column;
+}
+
+.commenttitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.commentauthor {
+  font-size: 13px;
+  padding-left: 10px;
+}
+
+.commenttime {
+  font-size: 13px;
+  padding-left: 10px;
+  color: grey;
+}
+
+.commenttext {
+  font-size: 14px;
+  padding-left: 10px;
+  padding-top: 8px;
+}
+
+.commentlike {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.other {
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 60px;
+}
+
+.commingsoon {
+  padding-bottom: 15px;
+}
+
+.commingsoontitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.autoplay {
+  padding-right: 24px;
+  font-size:13px;
+}
+
+.commingsoonvideo {
+  display: flex;
+  flex-direction: row;
+  padding-top: 10px;
+}
+
+.commingsoonvideodesc {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.commingsoonvideotitle {
+  font-size: 14px
+}
+
+.commingsoonvideoauthor {
+  font-size: 13px
+}
+
+.commingsoonvideoview {
+  font-size: 13px
+}
+
+.xscomment {
+  display: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .lgcomment {
+    display: none;
+}
+  .xscomment {
+    display: flex;
+  }
+}
