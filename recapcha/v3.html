@@ -19,6 +19,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             background-color: white;
+            text-align: center;
         }
         .captcha-question {
             margin-bottom: 10px;
@@ -44,19 +45,53 @@
         button:hover {
             background-color: #218838;
         }
+        .word-list {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #555;
+        }
     </style>
 </head>
 <body>
     <div class="recaptcha-container">
         <div class="captcha-question">Prosím, potvrďte, že nie ste robot:</div>
-        <input type="text" id="captchaInput" placeholder="Napíšte 'jablko'" required>
+        <div class="word-list" id="wordList"></div>
+        <input type="text" id="captchaInput" placeholder="Napíšte jedno z týchto slov" required>
         <button id="verifyButton">Verify</button>
     </div>
 
     <script>
+        // Funkcia na generovanie 50 náhodných slov
+        function generateRandomWords() {
+            const words = [];
+            const sampleWords = [
+                "jablko", "hruška", "banán", "oranž", "kiwi", "melón", "čerešňa", "broskyňa",
+                "mango", "papája", "ananá", "figa", "mandarínka", "grepfruit", "čučoriedka",
+                "slivka", "marhuľa", "čokoláda", "keksík", "koláč", "torta", "zmrzlina", "cukor",
+                "soľ", "korenička", "chlieb", "maslo", "syr", "vajce", "mäsko", "ryba",
+                "zelenina", "pasta", "těstoviny", "pohánka", "ryža", "obilniny", "šalát",
+                "džús", "kávový", "čajový", "vodka", "pivo", "víno", "cider", "smoothie",
+                "kaša", "polievka", "puding", "omeleta", "palačinka", "hamburger", "pizza"
+            ];
+
+            // Generovanie 50 náhodných slov
+            for (let i = 0; i < 50; i++) {
+                const randomIndex = Math.floor(Math.random() * sampleWords.length);
+                const word = sampleWords[randomIndex];
+                words.push(word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+            }
+
+            return [...new Set(words)].join(', '); // Zabezpečenie unikátnych slov
+        }
+
+        document.getElementById('wordList').innerText = generateRandomWords();
+
         document.getElementById('verifyButton').addEventListener('click', function() {
             var userInput = document.getElementById('captchaInput').value;
-            if (userInput.toLowerCase() === 'jablko') {
+            const wordsList = document.getElementById('wordList').innerText.split(', ');
+
+            // Overenie, či je vstup medzi náhodnými slovami
+            if (wordsList.includes(userInput)) {
                 // Po úspešnom overení presmerovanie
                 window.location.href = "https://sites.google.com/view/hackers-guide-plus/hackersguide2024";
             } else {
