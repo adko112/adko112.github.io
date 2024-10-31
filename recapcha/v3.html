@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReCAPTCHA Imitácia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+        .recaptcha-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+        }
+        .captcha-question {
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Divný font */
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="recaptcha-container">
+        <div class="captcha-question">Prosím, potvrďte, že nie ste robot:</div>
+        <input type="text" id="captchaInput" placeholder="Napíšte 'jablko'" required>
+        <button id="verifyButton">Verify</button>
+    </div>
+
+    <script>
+        document.getElementById('verifyButton').addEventListener('click', function() {
+            var userInput = document.getElementById('captchaInput').value;
+            if (userInput.toLowerCase() === 'jablko') {
+                // Po úspešnom overení presmerovanie
+                window.location.href = "https://sites.google.com/view/hackers-guide-plus/hackersguide2024";
+            } else {
+                alert('Nesprávny vstup, skúste to znova.');
+            }
+        });
+    </script>
+</body>
+</html>
