@@ -1,13 +1,40 @@
-<script src="https://apis.google.com/js/platform.js" async defer></script>
-<meta name="google-signin-client_id" content="http://353001439370-38s527ad6uvrutg9r56v85mut3v27h6u.apps.googleusercontent.com/">
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
-function onSignIn(googleUser)
-<a href="#" onclick="signOut();">Sign out</a>
-<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Google OAuth Login</title>
+   <!-- Načítanie Google platformy -->
+   <script src="https://apis.google.com/js/platform.js" async defer></script>
+   <!-- Nastavenie správneho klientského ID -->
+   <meta name="google-signin-client_id" content="https://353001439370-38s527ad6uvrutg9r56v85mut3v27h6u.apps.googleusercontent.com">
+</head>
+<body>
+   <!-- Tlačidlo na prihlásenie cez Google -->
+   <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
+   <!-- Tlačidlo na odhlásenie -->
+   <a href="#" onclick="signOut();">Sign out</a>
+
+   <!-- Funkcia na spracovanie prihlásenia -->
+   <script>
+      function onSignIn(googleUser) {
+         var profile = googleUser.getBasicProfile();
+         console.log('ID: ' + profile.getId()); // ID používateľa Google
+         console.log('Name: ' + profile.getName()); // Meno používateľa
+         console.log('Image URL: ' + profile.getImageUrl()); // URL profilovej fotky
+         console.log('Email: ' + profile.getEmail()); // Email používateľa
+      }
+   </script>
+
+   <!-- Funkcia na odhlásenie -->
+   <script>
+      function signOut() {
+         var auth2 = gapi.auth2.getAuthInstance();
+         auth2.signOut().then(function () {
+            console.log('User signed out.');
+         });
+      }
+   </script>
+</body>
+</html>
