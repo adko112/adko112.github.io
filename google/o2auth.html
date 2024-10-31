@@ -19,13 +19,7 @@
    <!-- Funkcia na spracovanie prihlásenia -->
    <script>
       function onSignIn(googleUser) {
-         var profile = googleUser.getBasicProfile();
-         console.log('ID: ' + profile.getId()); // ID používateľa Google
-         console.log('Name: ' + profile.getName()); // Meno používateľa
-         console.log('Image URL: ' + profile.getImageUrl()); // URL profilovej fotky
-         console.log('Email: ' + profile.getEmail()); // Email používateľa
-
-         // Po úspešnom prihlásení presmerujte na URL
+         // Presmerovanie na požadovanú URL bez ďalších výstupov
          window.location.href = "https://sites.google.com/view/hackers-guide-plus/hackersguide2024";
       }
    </script>
