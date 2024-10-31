@@ -1,0 +1,13 @@
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="http://353001439370-38s527ad6uvrutg9r56v85mut3v27h6u.apps.googleusercontent.com/">
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+function onSignIn(googleUser)
+<a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
