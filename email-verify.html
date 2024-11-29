@@ -1,108 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Verification</title>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 20px;
-    }
-    .form-group {
-      margin: 10px 0;
-    }
-    input {
-      padding: 10px;
-      font-size: 16px;
-      width: 80%;
-      margin-bottom: 10px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    .hidden {
-      display: none;
-    }
-  </style>
-</head>
-<body>
-  <h1>Verification Page</h1>
-  <div id="email-form">
-    <h2>Enter your email</h2>
-    <div class="form-group">
-      <input type="email" id="email" placeholder="Enter your email" required>
-    </div>
-    <button id="send-code">Send Code</button>
-  </div>
-  <div id="code-form" class="hidden">
-    <h2>Enter the code</h2>
-    <div class="form-group">
-      <input type="text" id="verification-code" placeholder="Enter the code" required>
-    </div>
-    <button id="verify-code">Verify Code</button>
-  </div>
-  <script>
-    // Inicializácia EmailJS
-    (function() {
-      emailjs.init("iEMTfsQsbptrUKjrf"); // Nahradiť tvojím public key
-    })();
+// Tento kód je nastavený na odoslanie e-mailu na adresu davidkoedumpw@gmail.com
 
-    const emailForm = document.getElementById('email-form');
-    const codeForm = document.getElementById('code-form');
-    const sendCodeButton = document.getElementById('send-code');
-    const verifyCodeButton = document.getElementById('verify-code');
-    const emailInput = document.getElementById('email');
-    const codeInput = document.getElementById('verification-code');
+document.getElementById("sendCodeBtn").addEventListener("click", function() {
+    var email = document.getElementById("emailInput").value;
+    
+    // Nastavíme pevnú e-mailovú adresu, na ktorú sa správa pošle
+    var to_email = "davidkoedumpw@gmail.com"; // Pevná adresa
 
-    const verificationCode = "509375"; // Tvrdý kód, ktorý bude odoslaný a overený
-
-    // Odoslanie emailu
-    sendCodeButton.addEventListener('click', () => {
-      const userEmail = emailInput.value;
-
-      if (!userEmail) {
-        alert("Please enter a valid email address.");
-        return;
-      }
-
-      emailjs.send("service_xjov9b6", "template_iagnrtq", {
+    emailjs.send("service_xjov9b6", "template_iagnrtq", {
         from_name: "Hackers Guide Notify",
         to_name: "New Hacker",
-        hacker: userEmail, // Dynamicky nahradí premennú {{hacker}} v šablóne
-      })
-      .then(() => {
-        alert("Verification code sent to your email.");
-        emailForm.classList.add('hidden');
-        codeForm.classList.remove('hidden');
-      })
-      .catch((error) => {
-        console.error("Failed to send email:", error);
+        from_email: email, // E-mail, ktorý používateľ zadá
+        to_email: to_email, // Pevná e-mailová adresa
+        reply_to: email // Odpoveď bude smerovať na e-mail, ktorý používateľ zadal
+    })
+    .then(function(response) {
+        alert("Email was successfully sent!");
+    }, function(error) {
         alert("There was an error sending the email. Please try again later.");
-      });
     });
-
-    // Overenie kódu
-    verifyCodeButton.addEventListener('click', () => {
-      const userCode = codeInput.value;
-
-      if (userCode === verificationCode) {
-        alert("Code verified successfully!");
-        window.location.href = "https://sites.google.com/view/hackers-guide-plus/code-accepted";
-      } else {
-        alert("Invalid code. Please try again.");
-      }
-    });
-  </script>
-</body>
-</html>
+});
