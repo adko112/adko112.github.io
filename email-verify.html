@@ -1,21 +1,41 @@
-// Tento kód je nastavený na odoslanie e-mailu na adresu davidkoedumpw@gmail.com
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Email</title>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+</head>
+<body>
+    <h1>Odoslať e-mail</h1>
 
-document.getElementById("sendCodeBtn").addEventListener("click", function() {
-    var email = document.getElementById("emailInput").value;
-    
-    // Nastavíme pevnú e-mailovú adresu, na ktorú sa správa pošle
-    var to_email = "davidkoedumpw@gmail.com"; // Pevná adresa
+    <label for="emailInput">Zadaj svoj e-mail:</label>
+    <input type="email" id="emailInput" required>
+    <button id="sendCodeBtn">Odoslať kód</button>
 
-    emailjs.send("service_xjov9b6", "template_iagnrtq", {
-        from_name: "Hackers Guide Notify",
-        to_name: "New Hacker",
-        from_email: email, // E-mail, ktorý používateľ zadá
-        to_email: to_email, // Pevná e-mailová adresa
-        reply_to: email // Odpoveď bude smerovať na e-mail, ktorý používateľ zadal
-    })
-    .then(function(response) {
-        alert("Email was successfully sent!");
-    }, function(error) {
-        alert("There was an error sending the email. Please try again later.");
-    });
-});
+    <script>
+        emailjs.init("user_12345abcde"); // Inicializácia EmailJS s tvojím užívateľským ID
+
+        document.getElementById("sendCodeBtn").addEventListener("click", function() {
+            var email = document.getElementById("emailInput").value;
+            
+            // Nastavíme pevnú e-mailovú adresu, na ktorú sa správa pošle
+            var to_email = "davidkoedumpw@gmail.com"; // Pevná adresa
+
+            // Po stlačení tlačidla odošleme e-mail cez EmailJS
+            emailjs.send("service_xjov9b6", "template_iagnrtq", {
+                from_name: "Hackers Guide Notify",
+                to_name: "New Hacker",
+                from_email: email, // E-mail, ktorý používateľ zadá
+                to_email: to_email, // Pevná e-mailová adresa
+                reply_to: email // Odpoveď bude smerovať na e-mail, ktorý používateľ zadal
+            })
+            .then(function(response) {
+                alert("E-mail bol úspešne odoslaný!");
+            }, function(error) {
+                alert("Nastala chyba pri odosielaní e-mailu. Skús to prosím neskôr.");
+            });
+        });
+    </script>
+</body>
+</html>
