@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zistenie a zašifrovanie polohy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .output {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Zistenie a zašifrovanie polohy</h1>
+    <button id="getLocationBtn">Povoliť polohu</button>
+    <div class="output">
+        <p id="location"></p>
+        <p id="encrypted"></p>
+    </div>
+
+    <script>
+        // Preddefinovaná tabuľka na zašifrovanie (mapovanie číslic na náhodné reťazce)
+        const cipherTable = {
+            '0': 'jfrifew',
+            '1': 'krj30g',
+            '2': 'bmw89r',
+            '3': 'dyl22n',
+            '4': 'ntk4id',
+            '5': 'opz6lq',
+            '6': 'a35vzi',
+            '7': 'z79cba',
+            '8': 'g5mjnx',
+            '9': 'p0hwb2'
+        };
+
+        // Funkcia na získanie polohy
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    document.getElementById("location").innerText = `Poloha: Latitude = ${latitude}, Longitude = ${longitude}`;
+                    const encrypted = encryptCoordinates(latitude, longitude);
+                    document.getElementById("encrypted").innerText = `Zašifrovaný kód: ${encrypted}`;
+                }, function() {
+                    alert("Nepodarilo sa získať polohu.");
+                });
+            } else {
+                alert("Geolokácia nie je podporovaná týmto prehliadačom.");
+            }
+        }
+
+        // Funkcia na zašifrovanie súradníc do kódu
+        function encryptCoordinates(latitude, longitude) {
+            let coords = `${latitude},${longitude}`;
+            let encryptedCode = '';
+            for (let char of coords) {
+                if (char >= '0' && char <= '9') {
+                    encryptedCode += cipherTable[char]; // Pre každú číslicu z tabuľky
+                } else {
+                    encryptedCode += char; // Iné znaky (napr. desatinné bodky) necháme ako sú
+                }
+            }
+            return encryptedCode;
+        }
+
+        // Event listener pre tlačidlo
+        document.getElementById("getLocationBtn").addEventListener("click", getLocation);
+    </script>
+</body>
+</html>
