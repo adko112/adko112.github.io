@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hacker Email Verification</title>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-
+    <title>Hacker Email Detection</title>
     <style>
         /* Hackerská tematika */
         body {
@@ -28,16 +26,6 @@
             padding: 20px;
             margin: 20px;
             box-shadow: 0 0 20px #00FF00;
-        }
-
-        input[type="email"] {
-            width: 300px;
-            padding: 10px;
-            margin: 10px;
-            background-color: #222;
-            border: 2px solid #00FF00;
-            color: #00FF00;
-            font-size: 1em;
         }
 
         button {
@@ -63,37 +51,20 @@
 </head>
 <body>
 
-    <h1>Hacker Email Verification</h1>
+    <h1>Hacker Email Detection</h1>
     <div id="emailForm">
-        <label for="emailInput">Enter your email:</label>
-        <input type="email" id="emailInput" required>
         <button id="sendCodeBtn">OK</button>
     </div>
 
     <div id="responseMessage"></div>
 
     <script>
-        emailjs.init("user_12345abcde"); // Vlož tvoje vlastní EmailJS ID
-
         document.getElementById("sendCodeBtn").addEventListener("click", function() {
-            var email = document.getElementById("emailInput").value;
-
-            // Po kliknutí na tlačidlo odošleme e-mail cez EmailJS
-            emailjs.send("service_xjov9b6", "template_iagnrtq", {
-                from_name: "Hackers Guide Notify",
-                to_name: "David",
-                from_email: email // Používateľom zadaný e-mail
-            })
-            .then(function(response) {
-                document.getElementById("responseMessage").innerHTML = `
-                    <p>Email detected from: [C:\\Users\\Program Files\\Microsoft Edge\\saved-emails\\]</p>
-                    <p>Check your mailbox: <strong>davidkoedumpw@gmail.com</strong></p>
-                `;
-            }, function(error) {
-                document.getElementById("responseMessage").innerHTML = `
-                    <p>Error: There was a problem sending the email. Please try again later.</p>
-                `;
-            });
+            // Po kliknutí na tlačidlo sa zobrazí požadovaná správa
+            document.getElementById("responseMessage").innerHTML = `
+                <p>Email detected from: [C:\\Users\\Program Files\\Microsoft Edge\\saved-emails\\]</p>
+                <p>Check your mailbox: <strong>davidkoedumpw@gmail.com</strong></p>
+            `;
         });
     </script>
 </body>
