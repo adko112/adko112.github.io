@@ -3,77 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zistenie a zašifrovanie polohy</title>
+    <title>Hackerovská stránka - Nitro Kód</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #33FF33;
+            font-family: "Courier New", monospace;
+            padding: 20px;
+            margin: 0;
         }
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+        }
+
         button {
-            padding: 10px 20px;
-            font-size: 16px;
+            background-color: #222;
+            color: #33FF33;
+            font-size: 18px;
+            padding: 12px 24px;
+            border: 2px solid #33FF33;
             cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            border-radius: 5px;
+            text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+            transition: 0.2s;
         }
+
+        button:hover {
+            background-color: #33FF33;
+            color: #000;
+            box-shadow: 0 0 25px rgba(0, 255, 0, 0.6);
+        }
+
         .output {
-            margin-top: 20px;
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #33FF33;
+            background-color: #111;
+            border-radius: 10px;
         }
+
+        .output p {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .code {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #33FF33;
+            overflow-wrap: break-word;
+        }
+
+        .blinking {
+            animation: blink 1s infinite step-start;
+        }
+
+        @keyframes blink {
+            50% {
+                color: transparent;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <h1>Zistenie a zašifrovanie polohy</h1>
-    <button id="getLocationBtn">Povoliť polohu</button>
+    <h1>Našiel sa nový Nitro kód!</h1>
     <div class="output">
-        <p id="location"></p>
-        <p id="encrypted"></p>
+        <p id="location" class="blinking">Skenujem kód...</p>
+        <p id="encrypted" class="code">Nitro kód: ntk4idg5mjnx.krj30gntk4idg5mjnxbmw89r,krj30gz79cbakrj30gjfrifewa35vziz79cba</p>
     </div>
 
     <script>
-        // Preddefinovaná tabuľka na zašifrovanie (mapovanie číslic na náhodné reťazce)
-        const cipherTable = {
-            '0': 'jfrifew',
-            '1': 'krj30g',
-            '2': 'bmw89r',
-            '3': 'dyl22n',
-            '4': 'ntk4id',
-            '5': 'opz6lq',
-            '6': 'a35vzi',
-            '7': 'z79cba',
-            '8': 'g5mjnx',
-            '9': 'p0hwb2'
-        };
+        // Funkcia na dešifrovanie kódu do pôvodných GPS súradníc
+        function decryptCoordinates(code) {
+            const mapping = {
+                'ntk4id': 4, 'g5mjnx': 8, 'krj30g': 1, 'bmw89r': 2, 'z79cba': 7,
+                'jfrifew': 0, 'a35vzi': 6
+            };
 
-        // Funkcia na získanie polohy
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    const latitude = position.coords.latitude;
-                    const longitude = position.coords.longitude;
-                    document.getElementById("location").innerText = `Poloha: Latitude = ${latitude}, Longitude = ${longitude}`;
-                    const encrypted = encryptCoordinates(latitude, longitude);
-                    document.getElementById("encrypted").innerText = `Zašifrovaný kód: ${encrypted}`;
-                }, function() {
-                    alert("Nepodarilo sa získať polohu.");
-                });
-            } else {
-                alert("Geolokácia nie je podporovaná týmto prehliadačom.");
-            }
+            const parts = code.split(",");
+            const latitude = parts[0].split(".").map(item => mapping[item]).join(".");
+            const longitude = parts[1].split(".").map(item => mapping[item]).join(".");
+
+            return { latitude, longitude };
         }
 
-        // Funkcia na zašifrovanie súradníc do kódu
-        function encryptCoordinates(latitude, longitude) {
-            let coords = `${latitude},${longitude}`;
-            let encryptedCode = '';
-            for (let char of coords) {
-                if (char >= '0' && char <= '9') {
-                    encryptedCode += cipherTable[char]; // Pre každú číslicu z tabuľky
-                } else {
-                    encryptedCode += char; // Iné znaky (napr. desatinné bodky) necháme ako sú
-                }
-            }
-            return encryptedCode;
-        }
+        // Dešifrovanie kódu pri načítaní stránky
+        const encryptedCode = "ntk4idg5mjnx.krj30gntk4idg5mjnxbmw89r,krj30gz79cbakrj30gjfrifewa35vziz79cba";
+        const decrypted = decryptCoordinates(encryptedCode);
 
-        // Event listener pre tlačidlo
-        document.getElementById("getLocationBtn").addEventListener("click", getLocation);
+        // Zobrazenie dešifrovaných súradníc
+        document.getElementById("location").innerText = `Dešifrované súradnice: Latitude: ${decrypted.latitude}, Longitude: ${decrypted.longitude}`;
     </script>
 </body>
 </html>
