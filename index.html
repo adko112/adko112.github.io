@@ -1,66 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<html>
+<!DOCTYPE html>   
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discord Webhook</title>
+  <title>Your cool website name here!</title>
 </head>
 <body>
-    <script>
-        // Príklad JavaScript kódu na odoslanie údajov o návštevníkovi cez Discord webhook
-
-// Discord webhook URL
-const webhookUrl = "hhttps://discord.com/api/webhooks/1312245384768389142/cZYDXnNEjdquKHqh9LVYrqWbb-Tjn3ReP1bfuUGZlueEgpM97bRnFF-cY-nqD3MIxRWz";
-
-// Funkcia na získanie geolokačných údajov
-async function getGeoInfo() {
-    const response = await fetch("https://ipinfo.io/?token=aadb8183cce9ea");
-    if (!response.ok) throw new Error("Nemôžem získať geolokačné údaje");
-    return response.json();
-}
-
-// Funkcia na získanie údajov o zariadení
-function getDeviceInfo() {
-    const userAgent = navigator.userAgent;
-    const platform = navigator.platform;
-    return {
-        userAgent,
-        platform
-    };
-}
-
-// Funkcia na odoslanie údajov cez webhook
-async function sendToDiscord(data) {
-    const payload = {
-        content: `Nový návštevník na stránke!\n\n` +
-                 `Mesto: ${data.city || "Neznáme"}\n` +
-                 `Štát: ${data.region || "Neznáme"}\n` +
-                 `Operačný systém: ${data.device.platform}\n` +
-                 `Prehliadač: ${data.device.userAgent}`
-    };
-
-    await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
-    });
-}
-
-// Hlavná funkcia
-(async function() {
-    try {
-        const geoInfo = await getGeoInfo();
-        const deviceInfo = getDeviceInfo();
-
-        await sendToDiscord({
-            city: geoInfo.city,
-            region: geoInfo.region,
-            device: deviceInfo
-        });
-    } catch (error) {
-        console.error("Chyba pri odosielaní údajov na Discord:", error);
-    }
-})();
-    </script>
+<h1>This is big text</h1>
+<p>this is small paragraphed text</p>
+<script type="text/javascript" src="/timers.js"></script>   <!--File name of the javascript file-->
 </body>
 </html>
