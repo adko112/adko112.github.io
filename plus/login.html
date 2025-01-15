@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hackers Guide!</title>
+  <!-- Pridanie Supabase JS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <style>
+    /* Hackerský štýl */
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    h1, h2 {
+      text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+    }
+    form, button {
+      margin: 20px auto;
+      padding: 10px;
+      width: 300px;
+      border: 2px solid #00ff00;
+      border-radius: 5px;
+      background-color: black;
+    }
+    input {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #00ff00;
+      border-radius: 3px;
+      background-color: black;
+      color: #00ff00;
+      font-size: 16px;
+    }
+    button {
+      font-size: 16px;
+      color: black;
+      background-color: #00ff00;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00cc00;
+    }
+    a {
+      color: #00ff00;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hackerský Login</h1>
+
+  <!-- Formulár pre registráciu -->
+  <h2>Registrácia</h2>
+  <form id="registerForm">
+    <input type="email" id="registerEmail" placeholder="E-mail" required />
+    <input type="password" id="registerPassword" placeholder="Heslo" required />
+    <button type="submit">Registrovať</button>
+  </form>
+
+  <!-- Formulár pre prihlásenie -->
+  <h2>Prihlásenie</h2>
+  <form id="loginForm">
+    <input type="email" id="loginEmail" placeholder="E-mail" required />
+    <input type="password" id="loginPassword" placeholder="Heslo" required />
+    <button type="submit">Prihlásiť</button>
+  </form>
+
+  <!-- Tlačidlo na odhlásenie -->
+  <h2>Odhlásenie</h2>
+  <button id="logoutButton">Odhlásiť</button>
+
+  <script>
+    // Inicializácia Supabase
+    const supabaseUrl = 'https://msdpkvhioljhzfvelbcd.supabase.co';
+    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1zZHBrdmhpb2xqaHpmdmVsYmNkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzY5MTU1NzgsImV4cCI6MjA1MjQ5MTU3OH0._bDkhN54jBqjNjEYhbl83FYZAaxrhqSroczIm8zo8lI';
+    const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+    // Registrácia používateľa
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('registerEmail').value;
+      const password = document.getElementById('registerPassword').value;
+
+      const { data, error } = await supabase.auth.signUp({ email, password });
+      if (error) {
+        alert('Chyba pri registrácii: ' + error.message);
+      } else {
+        alert('Úspešne registrovaný! Skontroluj svoj e-mail.');
+      }
+    });
+
+    // Prihlásenie používateľa
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+      if (error) {
+        alert('Chyba pri prihlasovaní: ' + error.message);
+      } else {
+        alert('Úspešne prihlásený!');
+        // Presmerovanie na požadovanú stránku
+        window.location.href = 'https://sites.google.com/view/hackers-guide-plus/hackersguide2024';
+      }
+    });
+
+    // Odhlásenie používateľa
+    document.getElementById('logoutButton').addEventListener('click', async () => {
+      const { error } = await supabase.auth.signOut();
+      if (error) {
+        alert('Chyba pri odhlasovaní: ' + error.message);
+      } else {
+        alert('Úspešne odhlásený!');
+      }
+    });
+  </script>
+</body>
+</html>
