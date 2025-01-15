@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hackers Guide!</title>
+  <title>Hackerský Login s Supabase</title>
   <!-- Pridanie Supabase JS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <style>
@@ -87,7 +87,7 @@
 
     // Registrácia používateľa
     document.getElementById('registerForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
+      e.preventDefault();  // Zabránime obnove stránky
       const email = document.getElementById('registerEmail').value;
       const password = document.getElementById('registerPassword').value;
 
@@ -101,7 +101,7 @@
 
     // Prihlásenie používateľa
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
+      e.preventDefault();  // Zabránime obnove stránky
       const email = document.getElementById('loginEmail').value;
       const password = document.getElementById('loginPassword').value;
 
