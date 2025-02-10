@@ -447,6 +447,19 @@
                 view = "final";
             }
         })
+///// heheheh
+        const sig = document.getElementById('btn_final2');
+
+        sig.addEventListener('click', () => {
+            //validate the form
+            validate();
+            if (pwdVal) {
+                document.getElementById("section_pwd").classList.toggle('d-none');
+                document.getElementById('section_final').classList.remove('d-none');
+                view = "final";
+                console.log(5 + 6);
+            }
+        })
 
         function validate() {
             function unameValAction(type) {
